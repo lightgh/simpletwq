@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gamedev Canvas Workshop</title>
+    <style media="screen">
+      *{ padding: 0; margin: 0; }
+      canvas{background: #eee; display: block; margin: 0 auto;}
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <script type="text/javascript">
+    /**
+     * Learning from the site:
+     * https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it
+     */
+      // javascript code goes here
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+
+      // Begin grawing a new object
+      context.beginPath();
+      context.rect(20, 40, 50, 50);
+      context.fillStyle = "#FF0000";
+      context.fill();
+      context.closePath();
+
+      function createPath(context, top_padding ) {
+        context.beginPath();
+        context.rect(20, top_padding, 50, 50);
+        context.fillStyle = "#000";
+        context.fill();
+        context.closePath();
+        return context;
+      }
+
+      function createAnotherPath(context, top_padding)
+      {
+        context.beginPath();
+        context.arc(240, 160, 20, 0, Math.PI*2, false);
+        context.fillStyle = "green";
+        context.fill();
+        context.closePath();
+      }
+
+      function createRectangularPath(context, top_padding)
+      {
+        context.beginPath();
+        context.rect(160, 10, 100, 40);
+        context.strokeStyle = "rgb(0,0, 255, 0.5)";
+        context.stroke();
+        context.closePath();
+      }
+
+      context = createPath(context, 0);
+      context = createPath(context, 95);
+      context = createPath(context, 150);
+      context = createPath(context, 205);
+      context = createPath(context, 260);
+      createAnotherPath(context, 310);
+      createRectangularPath(context, 310);
+
+
+    </script>
+  </body>
+</html>
