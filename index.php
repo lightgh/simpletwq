@@ -1,5 +1,5 @@
 <?php 
 
-echo "<h1>YEAH</h1>";
+header('Location: /index.html');
 
 ?>
